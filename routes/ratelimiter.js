@@ -11,8 +11,8 @@ import rateLimit from "express-rate-limit";
 import Utils from "../lib/Util.js";
 
 export const rateLimiter = rateLimit({
-  windowMs: 24 * 60 * 60 * 1000,
-  max: 1,
+  windowMs: 1000, // 24 * 60 * 60 * 1000
+  max: 50,
   keyGenerator: function (req) {
     return req.headers["x-real-ip"];
   },
